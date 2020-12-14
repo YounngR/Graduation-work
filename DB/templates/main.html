@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<head>
+</head>
+
+<body>
+  <img width="100%" height="600px" src="{% static 'img/banner.png'%}" >
+
+  <hr style="border: solid 10px black; margin-top:-5px;">
+
+  <div width="100%" height="500px" style="background-color:#CFEBEA; margin-top:-3px;" onclick="camara()">
+    <img width="100px" height="100px" src="{% static 'img/camera.png'%}" style="padding-left:400px; padding-top:150px;">
+    <p style="font-size:50px; margin-left:200px; font-weight:bold;" >처방전 찍어 확인하기</p>
+    <div style="visibility: visible; height: 100px;"></div>
+  </div>
+  <div width="100%" height="500px"  style="background-color:#eefdea" onclick="map()">
+    <img width="100px" height="100px" src="{% static 'img/map.png'%}" style="padding-left:400px; padding-top:150px;">
+    <p style="font-size:50px; margin-left:200px; font-weight:bold;" >내 주변 병원 확인하기</p>
+    <div style="visibility: visible; height: 100px;"></div>
+  </div>
+</body>
+
+<script>
+  function camara(){
+    location.href= "{% url 'DB:camera' %}";
+  }
+  function map(){
+    location.href= "{% url 'DB:kakaomap' %}";
+  }
+</script>
+</html>

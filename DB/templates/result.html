@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <style type="text/css">
+     a:link { color: red; text-decoration: none;}
+     a:visited { color: black; text-decoration: none;}
+     a:hover { color: blue; text-decoration: underline;}
+  </style>
+
+<head>
+</head>
+
+<body>
+  <div style="float:right; margin-right:30px; margin-top:30px; margin-bottom:30px;">
+    <img width="50px" height="50px"  src="{% static 'img/home_icon.jpg'%}" style="margin-right:50px;" onclick="back()">
+    <img width="50px" height="50px"  src="{% static 'img/setting.png'%}" >
+  </div>
+
+  <div style="float:left; margin-top:200px; margin-left:50px;">
+    <font style="font-size:70px; background-color:MISTYROSE;">{{ count }}개 검출</font>
+    {% for db in db %}
+    <div style="margin-top:50px;">
+      <a href=#none id="show" onclick="if(hide.style.display=='none') {hide.style.display='';} else {hide.style.display='none';show.innerText='{{db.m_Name}}'}" style="font-size:50px;">{{db.m_Name}}</a>
+      <div id="hide" style="display: none; font-size:40px;">
+        <table>
+          <tr>
+            <td style="font-size:50px; font-weight:bold; background-color:SILVER;">효과</td>
+          </tr>
+          <tr>
+            <td>{{db.m_Efficacy}}</td>
+          </tr>
+          <tr>
+            <td style="font-size:50px; font-weight:bold; background-color:SILVER;">부작용</td>
+          </tr>
+          <tr>
+            <td>{{db.m_Side_Effect}}</td>
+          </tr>
+        </table>
+      </div>
+      <hr>
+    </div>
+    {%endfor%}
+  </div>
+
+
+
+</body>
+
+<script>
+  function back(){
+    location.href= "{% url 'DB:main' %}";
+  }
+</script>
+</html>

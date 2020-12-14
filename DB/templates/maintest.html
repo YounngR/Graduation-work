@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+  <div style="float:right; margin-right:30px; margin-top:30px; border-bottom:10px solid silver;">
+    <img width="50px" height="50px"  src="{% static 'img/setting.png'%}" onclick="his()">
+  </div>
+  <div style="float:left; margin-top:500px; margin-left:140px;">
+    <img width="600px" height="200px" src="{% static 'img/Nbanner.png'%}" >
+  </div>
+  <div style="float:left; margin-top:200px; margin-left:50px;" >
+    <img width="400px" height="400px" style="border: 1px solid silver;"  src="{% static 'img/Ncamera.png'%}"  onclick="camara()">
+    <img width="400px" height="400px" style=" margin-left:50px; border: 1px solid silver;" src="{% static 'img/Nmap.png'%}" onclick="map()">
+  </div>
+</body>
+
+<script>
+  function camara(){
+    location.href= "{% url 'DB:camera' %}";
+  }
+  function map(){
+    location.href= "{% url 'DB:kakaomap' %}";
+  }
+  function his(){
+    location.href= "{% url 'DB:history' %}";
+  }
+</script>
+
+</html>
